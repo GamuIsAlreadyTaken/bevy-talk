@@ -20,12 +20,12 @@ como ejemplo
 # Diseño orientado a datos
 note:
 - Puts emphasis on the data layout rather than logic organization
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="5" -->
 ![[hourglass.svg|100]]
 ## Cuello de botella de 
 ## von Neuman
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="5" -->
 ## Cuello de botella de 
 ## von Neuman
@@ -34,12 +34,66 @@ note:
 note:
 - Bus limits the amount of data that can be moved to the CPU
 - Caches are useful for reducing its effects
----
+--
 ![[speed-references.png]]
 note:
 - Log scale
 - Google patch of TCP code in Linux kernel, up to 40% speed up by rearranging struct field for cache friendliness
----
+--
+<!-- slide data-auto-animate data-auto-animate-id="-1" -->
+
+![[flag.svg|100]]
+# El objetivo
+
+note:
+- Get the most out of the memory we have
+- Avoid padding
+--
+<!-- slide data-auto-animate data-auto-animate-id="-1" -->
+
+![[flag.svg|100]]
+# El objetivo
+## Leer menos
+note:
+- Use the bus to its fullest => avoid padding + favor locality
+- Be cache friendly
+
+--
+# Memoria Cache
+<split gap=2>
+<split>
+L1
+![[car.svg|80]]
+</split>
+<split>
+L2
+![[truck.svg|100]]
+</split>
+<split>
+L3
+![[freight.svg|120]]
+</split>
+</split>
+--
+<!-- slide data-auto-animate data-auto-animate-id="4" -->
+## Alineamiento y Padding
+note:
+- Alignment allows the CPU to work faster
+- But can waste a lot of cache space 
+--
+<!-- slide data-auto-animate data-auto-animate-id="4" -->
+## Alineamiento y Padding
+![[stride-nopadding.png]]
+note:
+- Each struct should use 9 bytes
+--
+<!-- slide data-auto-animate data-auto-animate-id="4" -->
+## Alineamiento y Padding
+![[stride-nopadding.png]]
+![[stride-padding.png]]
+note:
+- In reality they use 16 because of padding
+--
 ```c[]
 struct ProgressBar {
 	int percentage;
@@ -60,31 +114,16 @@ struct ProgressBars bars = { ... };
 ```
 <!-- element highlight-theme="obsidian" class="fragment" -->
 
----
-<!-- slide data-auto-animate data-auto-animate-id="4" -->
-## Alineamiento y Padding
----
-<!-- slide data-auto-animate data-auto-animate-id="4" -->
-## Alineamiento y Padding
-![[stride-nopadding.png]]
-note:
-- Each struct should use 9 bytes
----
-<!-- slide data-auto-animate data-auto-animate-id="4" -->
-## Alineamiento y Padding
-![[stride-nopadding.png]]
-![[stride-padding.png]]
-note:
-- In reality they use 16 because of padding
----
+--
+
 ![[crown.svg|100]]
 ## Estructuras de arrays
 ![[stride-structpacking.png]]
 
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="-2" -->
 ## Punteros
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="-2" -->
 ## Indices
 ## ~~Punteros~~
@@ -97,26 +136,6 @@ note:
 - 1 index can let access to multiple components
 ---
 
-<!-- slide data-auto-animate data-auto-animate-id="-1" -->
-
-![[flag.svg|100]]
-# El objetivo
-
-note:
-- Get the most out of the memory we have
-- Avoid padding
----
-<!-- slide data-auto-animate data-auto-animate-id="-1" -->
-
-![[flag.svg|100]]
-# El objetivo
-## ~~Cuello de botella~~
-![[funnel.svg|100]]
-note:
-- Use the bus to its fullest => avoid padding + favor locality
-- Be cache friendly
-
----
 <!-- slide data-auto-animate data-auto-animate-id="0" -->
 ![[idea.svg|100]]
 # La idea
@@ -124,50 +143,50 @@ note:
 - Deal with lots of data
 - Data with similar shape
 - Read mostly all at once
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="0" -->
 ![[idea.svg|100]]
 # La idea 
-Una base de datos
+Algo similar a una base de datos
 
 ![[database.svg|100]]
 
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="1" -->
 # E
 ## Entidades
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="1" -->
 ## Entidades
 ### ⭣
 ## Id
 note:
 - Ids are the index
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="2" -->
 # C
 ## Componentes
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="2" -->
 ## Componentes
 ### ⭣
 ## Columnas
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="3" -->
 # S
 ## Sistemas
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="3" -->
 ## Sistemas
 ### ⭣
 ## Funciones*
 note:
 - Only functions that query this db
----
+--
 # En código
 note: 
 - Timer and Tick function
----
+--
 
 ```c[]
 // define a component
@@ -178,7 +197,7 @@ struct Timer { float timeLeft };
 ```
 <!-- element highlight-theme="mocha" -->
 
----
+--
 ```c [|4-5|7, 9|8]
 // define a function to update the component
 
@@ -196,7 +215,7 @@ void timer_tick (
 <!-- element highlight-theme="mocha" -->
 note: 
 - Parameters represent a Query
----
+--
 ```c [|4-5|7,11|8-10]
 // define a function to update the component
 
@@ -217,7 +236,7 @@ void timer_ring (
 note:
 - Iterating twice is not inefficient, 10 x 2 = 10 + 10
 - Makes it more parallelizable and cache friendly
----
+--
 ```c [|3-4|6-8]
 // create a entity
 
@@ -234,7 +253,7 @@ timer_amount += 1;
 note:
 - The first part is handled by ECS
 - The second part can be made into a function
----
+--
 ```c []
 // run the example
 
@@ -250,23 +269,23 @@ while(true) {
 ---
 ![[rocket.svg|300]]
 # Volando mas lejos
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="1" -->
 ![[cube.svg|100]]
 ## Recursos
 note:
 - Configuración, Texturas, Pistas de audio
 - For unique data
----
+--
 ![[leash.svg|100]]
 ## Handles
 note:
 - An index for a resource
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="2" -->
 ![[notebook.svg|100]]
 ## Registro de Sistemas
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="2" -->
 ![[notebook.svg|100]]
 ## Registro de Sistemas
@@ -277,17 +296,17 @@ note:
 - Phases -> Order Systems
 - Conditions -> Avoid pointless executions
 - App states -> Thanks to Resources
----
+--
 ![[bullseye.svg|140]]
 ## Sistemas 'One Shot'
 note:
 - Not as in use it and throw it away
 - More like systems without schedule
 - For sporadic things like UI buttons
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="3" -->
 ## Comunicación entre Sistemas
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="3" -->
 ## Comunicación entre Sistemas
 <split gap="2">
@@ -298,7 +317,7 @@ note:
 </split>
 note:
 - Events can easily be implemented with a queue Resource
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="3" -->
 ## Comunicación entre Sistemas
 <split gap="2">
@@ -316,14 +335,14 @@ note:
 - Notifies subscribers on event trigger
 - Continuing with the idea of executing out of schedule
 
----
+--
 ![[magnifying.svg|100]]
 ## Filtros
 note:
 - Until now we have done only `select`s
 - With<>, Without<>
 
----
+--
 ## Detección de cambios
 <split even gap="1">
 ::: block
@@ -346,7 +365,7 @@ En
 
 ![[bevy_logo_dark.svg]]
 
----
+--
 ## Componentes
 ```rust[]
 
@@ -357,7 +376,7 @@ struct MyVelocity { x: f32, y: f32 }
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
 
----
+--
 ## Recursos
 ```rust[]
 
@@ -368,7 +387,7 @@ struct GameConfig { ... }
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
 
----
+--
 ## Sistemas
 ```rust[|3|5|6]
 
@@ -384,7 +403,7 @@ fn gravity(
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
 
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="5" -->
 ## Filtros
 ```rust[|3|4]
@@ -403,7 +422,7 @@ note:
 	- Add/Remove components
 - Tuples are like And
 
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="5" -->
 ## Filtros
 ```rust[]
@@ -428,7 +447,7 @@ fn clean_up(
 <!-- element highlight-theme="tokyo-night-dark" -->
 note:
 - Entity doesn't have the &, because its a copy type
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="6" -->
 ## Parámetros de Sistemas
 
@@ -447,7 +466,7 @@ fn reset_position(
 <!-- element highlight-theme="tokyo-night-dark" -->
 note:
 - ParamSet is to work around query collisions, just lets access to 1 Query at a time
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="6" -->
 ## Parámetros de Sistemas
 
@@ -466,7 +485,7 @@ fn calculate_lights(
 <!-- element highlight-theme="tokyo-night-dark" -->
 note:
 - Option can be used with Res as well as in Querys
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="6" -->
 ## Parámetros de Sistemas
 
@@ -482,7 +501,7 @@ fn debug_draw(
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
 
----
+--
 ## La App
 ```rust[]
 
@@ -497,12 +516,12 @@ fn main() {
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
 
----
+--
 ![[bag.svg|150]]
-## Bundles
+# Bundles
 note:
 - Group elements for ease of use
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="6" -->
 ## Componentes
 ```rust[1-7|2]
@@ -518,7 +537,7 @@ struct PlayerBundle {
 <!-- element highlight-theme="tokyo-night-dark" data-id="2"-->
 note:
 - Avoid boilerplate thanks to tuples
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="6" -->
 ```rust[]
 
@@ -546,7 +565,7 @@ note:
 - Almost all bundles can do this
 - Up to 16-tuple but can be nested
 
----
+--
 ## Sistemas
 ```rust[1-12|2,11|3|4-8|9|10]
 
@@ -565,7 +584,7 @@ app.add_systems(
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
 
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="7" -->
 ```rust[|2,5|3-4]
 
@@ -579,7 +598,7 @@ fn my_plugin(app: &mut App) {
 <!-- element highlight-theme="tokyo-night-dark" data-id="2"-->
 ## Plugins
 
----
+--
 <!-- slide data-auto-animate data-auto-animate-id="7" -->
 ```rust[]
 
@@ -608,5 +627,16 @@ impl Plugin for MyPlugin {
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
 
+--
+
+## System Composition
+
+--
+
+## In-System parallelization
+
 ---
+
+## Ejemplos
+https://bevyengine.org/examples/
 

@@ -140,7 +140,7 @@ Togglable Swarm Interaction Rules - Run conditions #Investigate
 - Data oriented design effectiveness: [Google TCP patch](https://www.phoronix.com/news/Linux-6.8-Networking)
 - Bevy Boids [Implementation blog](https://blog.roblesch.page/blog/2024/04/29/bevy-boids.html)
 ## Media
-- [svgrepo.com](https://www.svgrepo.com/vectors/bevy/)
+- [svgrepo.com](https://www.svgrepo.com)
 	- [database](https://www.svgrepo.com/svg/286565/database)
 	- [idea](https://www.svgrepo.com/svg/474868/idea)
 	- [tools](https://www.svgrepo.com/svg/293655/tools-repair)
@@ -164,6 +164,9 @@ Togglable Swarm Interaction Rules - Run conditions #Investigate
 	- [don't point](https://www.svgrepo.com/svg/73595/pointer)
 	- [magnifying glass](https://www.svgrepo.com/svg/243711/magnifying-glass-search)
 	- [leash](https://www.svgrepo.com/svg/275546/leash)
+	- [freight](https://www.svgrepo.com/svg/243215/freight)
+	- [truck](https://www.svgrepo.com/svg/243197/delivery-truck-trailer)
+	- [car](https://www.svgrepo.com/svg/243201/automobile-car)
 - [ithare.com](http://ithare.com/)
 	- [cost of operations table](http://ithare.com/infographics-operation-costs-in-cpu-clock-cycles/)
 - [swiftunboxed.com](https://swiftunboxed.com)
