@@ -68,6 +68,8 @@ The current bottleneck is not compute but the memory bus, if we make it faster (
 - ### Systems = Functions
 	- Query Sets, avoid mutability conflicts in queries with common elements
 
+- [ ] Maybe: Use an example of design, not implemented but as a thought
+
 # Simple example: Space Invaders ? Maybe Swarms or smth like that would be better
 - [ ] Maybe: use git to store each step and show it live
 Step by step
@@ -122,7 +124,6 @@ Menu - Events, One Shot Systems
 Mouse Interaction - Resources, Events?
 Togglable Swarm Interaction Rules - Run conditions #Investigate 
 
-
 - [ ] Review everything in [[#Going further for quality of life]] with bevy examples
 
 ## Cool sites
@@ -140,6 +141,7 @@ Togglable Swarm Interaction Rules - Run conditions #Investigate
 - Data oriented design effectiveness: [Google TCP patch](https://www.phoronix.com/news/Linux-6.8-Networking)
 - Bevy Boids [Implementation blog](https://blog.roblesch.page/blog/2024/04/29/bevy-boids.html)
 ## Media
+- [highlight.js](https://highlightjs.org/)(edited)
 - [svgrepo.com](https://www.svgrepo.com)
 	- [database](https://www.svgrepo.com/svg/286565/database)
 	- [idea](https://www.svgrepo.com/svg/474868/idea)
@@ -157,10 +159,10 @@ Togglable Swarm Interaction Rules - Run conditions #Investigate
 	- [hourglass](https://www.svgrepo.com/svg/396667/hourglass-not-done)
 	- [ruler](https://www.svgrepo.com/svg/178375/ruler-construction)
 	- [crown](https://www.svgrepo.com/svg/262832/crown)
-	- [bag(edited)](https://www.svgrepo.com/svg/397521/money-bag)
+	- [bag](https://www.svgrepo.com/svg/397521/money-bag)(edited)
 	- [funnel](https://www.svgrepo.com/svg/232159/funnel)
 	- [register](https://www.svgrepo.com/svg/301025/notebook-bookmark)
-	- [organize(edited)](https://www.svgrepo.com/svg/524134/reorder)
+	- [organize](https://www.svgrepo.com/svg/524134/reorder)(edited)
 	- [don't point](https://www.svgrepo.com/svg/73595/pointer)
 	- [magnifying glass](https://www.svgrepo.com/svg/243711/magnifying-glass-search)
 	- [leash](https://www.svgrepo.com/svg/275546/leash)
@@ -176,6 +178,4 @@ Togglable Swarm Interaction Rules - Run conditions #Investigate
 - [von neuman architecture](https://www.computerscience.gcse.guru/theory/von-neumann-architecture)
 
 
-- [x] TODO: Add vertical slides to data oriented design slide
-- [ ] TODO: Change simple code example with before and after, showing  classes in JS and then the equivalent code in ECS, its weird to do ECS in a language where there are no standard methods
 - [ ] TODO: Removed unused icons
