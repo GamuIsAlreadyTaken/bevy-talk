@@ -11,14 +11,12 @@
             "id": "3de91aceea91d883",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "ECS Slides.md",
-                "mode": "source",
-                "source": true
+                "file": "media/Von-Neumann-Architecture-Diagram.jpg"
               },
-              "icon": "lucide-file",
-              "title": "ECS Slides"
+              "icon": "lucide-image",
+              "title": "Von-Neumann-Architecture-Diagram"
             }
           },
           {
@@ -108,8 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "ed6bf7e5559733cd",
@@ -195,20 +192,20 @@
       "obsidian-advanced-slides:Show Slide Preview": false
     }
   },
-  "active": "9ebc1f4ae258301a",
+  "active": "3de91aceea91d883",
   "lastOpenFiles": [
+    "media/stride-structpacking.png",
+    "media/stride-padding.png",
+    "media/speed-references.png",
+    "media/stride-nopadding.png",
+    "media/bevy_logo_dark.svg",
+    "ECS Slides.md",
     "media/icons/freezer.svg",
     "media/icons/food-shop.svg",
     "media/icons/cutting-board.svg",
     "ECS Architecture with Bevy game engine as an example.md",
     "media/icons/coolnes-freezer-svgrepo-com.svg",
     "media/icons/convenience-store-svgrepo-com.svg",
-    "media/icons/board-wood-board-svgrepo-com.svg",
-    "ECS Slides.md",
-    "media/icons/no-pointer.svg",
-    "media/icons/pointer.svg",
-    "media/icons/shopping-basket.svg",
-    "media/icons/restaurant.svg",
-    "media/Von-Neumann-Architecture-Diagram.jpg"
+    "media/icons/board-wood-board-svgrepo-com.svg"
   ]
 }
