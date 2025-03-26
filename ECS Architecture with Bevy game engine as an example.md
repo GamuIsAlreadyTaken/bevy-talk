@@ -69,66 +69,10 @@ The current bottleneck is not compute but the memory bus, if we make it faster (
 	- Query Sets, avoid mutability conflicts in queries with common elements
 
 - [ ] Maybe: Use an example of design, not implemented but as a thought
-
-# Simple example: Space Invaders ? Maybe Swarms or smth like that would be better
-- [ ] Maybe: use git to store each step and show it live
-Step by step
-- [ ] Inception ( player )
-	- [ ] Static Instancing
-	- [ ] bundles
-- [ ] Command center ( input )
-	- [ ] Systems
-	- [ ] Registration
-	- [ ] Resources
-- [ ] Firepower ( bullets )
-	- [ ] Dynamic Instancing
-	- [ ] Scheduling 
-- [ ] Invasion ( aliens )
-	- [ ] Re-usability of components
-	- [ ] Custom bundles
-- [ ] Consequences ( bullet collision )
-	- [ ] Events
-	- [ ] Observers?
-- [ ] Retaliation ( alien AI )
-	- [ ] State Machine?
-Extensions
-- [ ] Survival ( player health )
-	- [ ] Plugins and extensibility
-- [ ] Calling for reinforcements ( alien variety )
-	- [ ] Asset management
-### Components
-Markers
-- Player
-- Alien
-- Bullet
-Data
-- Position
-- Collision
-- Velocity
-Graphics
-- Sprite Bundle
-### Systems
-- Input
-- IA
-- Velocity
-- Collision
-- Win
-
-
-# Swarm Sim
-TODO - Preferably it should use all elements of bevy's implementation
-Swarm - Static & Dynamic Instantiation, bundles
-Quad Tree - Resources
-Interaction Rules - Systems, Registration, Scheduling
-Menu - Events, One Shot Systems 
-Mouse Interaction - Resources, Events?
-Togglable Swarm Interaction Rules - Run conditions #Investigate 
-
 - [ ] Review everything in [[#Going further for quality of life]] with bevy examples
 
 ## Cool sites
 - [Memory layout of c structs](https://padding-split.vercel.app/)
-- 
 
 ## To continue down the rabbit hole
 - [A simple ECS](https://austinmorlan.com/posts/entity_component_system)
@@ -169,6 +113,12 @@ Togglable Swarm Interaction Rules - Run conditions #Investigate
 	- [freight](https://www.svgrepo.com/svg/243215/freight)
 	- [truck](https://www.svgrepo.com/svg/243197/delivery-truck-trailer)
 	- [car](https://www.svgrepo.com/svg/243201/automobile-car)
+	- [restaurant](https://www.svgrepo.com/svg/234631/restaurant-store)
+	- [shopping basket](https://www.svgrepo.com/svg/256841/shopping-basket-supermarket)
+	- [pointer](https://www.svgrepo.com/svg/6325/pointer)
+	- [food store](https://www.svgrepo.com/svg/396071/convenience-store)
+	- [freezer](https://www.svgrepo.com/svg/232834/coolnes-freezer)
+	- [cutting board](https://www.svgrepo.com/svg/277615/board-wood-board)
 - [ithare.com](http://ithare.com/)
 	- [cost of operations table](http://ithare.com/infographics-operation-costs-in-cpu-clock-cycles/)
 - [swiftunboxed.com](https://swiftunboxed.com)
