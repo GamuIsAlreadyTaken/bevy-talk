@@ -119,6 +119,7 @@ The current bottleneck is not compute but the memory bus, if we make it faster (
 	- [food store](https://www.svgrepo.com/svg/396071/convenience-store)
 	- [freezer](https://www.svgrepo.com/svg/232834/coolnes-freezer)
 	- [cutting board](https://www.svgrepo.com/svg/277615/board-wood-board)
+	- [toolbox](https://www.svgrepo.com/svg/398502/toolbox)
 - [ithare.com](http://ithare.com/)
 	- [cost of operations table](http://ithare.com/infographics-operation-costs-in-cpu-clock-cycles/)
 - [swiftunboxed.com](https://swiftunboxed.com)

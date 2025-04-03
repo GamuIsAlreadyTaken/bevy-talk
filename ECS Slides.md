@@ -17,6 +17,10 @@ como ejemplo
 
 ---
 
+# TODO indice
+
+---
+
 # Diseño orientado a datos
 note:
 - Puts emphasis on the data layout rather than logic organization
@@ -102,6 +106,7 @@ note:
 
 --
 
+<!-- slide data-auto-animate data-auto-animate-id="4" -->
 ## Alineamiento y Padding
 note:
 - Alignment allows the CPU to work faster
@@ -116,6 +121,7 @@ struct ProgressBar {
 	bool isActive;
 }
 struct ProgressBar bars[10] = { ... };
+
 
 ```
 <!-- element highlight-theme="darcula" -->
@@ -166,22 +172,28 @@ note:
 --
 
 ```c[]
+
 struct ProgressBar {
 	int percentage;
 	bool isActive;
 }
 struct ProgressBar bars[10] = { ... };
+
+
 ```
 <!-- element highlight-theme="darcula" class="fragment" -->
 ## Arrays de estructuras
 ### vs
 ## Estructuras de arrays
 ```c[]
+
 struct ProgressBars {
 	int percentage[10];
 	bool isActive[10];
 }
 struct ProgressBars bars = { ... };
+
+
 ```
 <!-- element highlight-theme="darcula" class="fragment" -->
 <!-- slide data-auto-animate data-auto-animate-id="4" -->
@@ -257,6 +269,8 @@ note:
 ## Componentes
 ### ⭣
 ## Columnas
+note:
+- Try to group the minimum needed data
 
 --
 
@@ -277,7 +291,7 @@ note:
 
 # En código
 note: 
-- Timer and Tick function
+- Simple Timer example
 
 --
 
@@ -335,22 +349,19 @@ note:
 
 --
 
-```c [|3-4|6-8]
+```c [|3-4|6]
 // create a entity
 
 struct Timer[MAX_SIZE] timers = {0};
-int timer_amount = 0;
+int timer_ammount = 0;
 
-int entity_id = timer_amount;
-timers[entity_id] = struct Timer { .timeLeft = 10. };
-timer_amount += 1;
+timers[timer_ammount++] = struct Timer { .timeLeft = 10. };
 
 
 ```
 <!-- element highlight-theme="mocha" -->
 note:
-- The first part is handled by ECS
-- The second part can be made into a function
+- Usually handled by ECS framework
 
 --
 
@@ -365,6 +376,8 @@ while(true) {
 
 ```
 <!-- element highlight-theme="mocha" -->
+note:
+- A setup function would be called before the loop
 
 ---
 
@@ -377,7 +390,7 @@ while(true) {
 ![[cube.svg|100]]
 ## Recursos
 note:
-- Configuración, Texturas, Pistas de audio
+- Configuration, textures, audio files
 - For unique data
 
 --
@@ -450,7 +463,7 @@ note:
 note:
 - Observers add a subscriber list to that Resource
 - Notifies subscribers on event trigger
-- Continuing with the idea of executing out of schedule
+- Adds to the idea of executing out of schedule
 
 --
 
@@ -489,7 +502,7 @@ En
 --
 
 ## Componentes
-```rust[]
+```rust[|2|]
 
 #[derive(Component)]
 struct MyVelocity { x: f32, y: f32 }
@@ -497,6 +510,9 @@ struct MyVelocity { x: f32, y: f32 }
 
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
+note:
+- Start introducing rust elements
+- Derive generates code for us ( anti boilerplate )
 
 --
 
@@ -513,7 +529,7 @@ struct GameConfig { ... }
 --
 
 ## Sistemas
-```rust[|3|5|6]
+```rust[|2,4,8|3|5,7|6]
 
 fn gravity(
 	mut velocities: Query<&mut MyVelocity>
@@ -526,12 +542,19 @@ fn gravity(
 
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
+note: 
+- Return void
+- Accept a specific set of parameters ( `SistemInput` trait implementers )
+- Parameters of `Query` are mostly reference types
+- References to `Query`implement `Iterator`
+- References are just safe pointers
+- Rust has implicit mutability, thus the `mut` in the query
 
 --
 
 <!-- slide data-auto-animate data-auto-animate-id="5" -->
 ## Filtros
-```rust[|3|4,7|5|6]
+```rust[|2,8,14|3|4,7|5|6|9,13|10|11|12]
 
 fn mark_dead_enemies(
 	mut commands: Commands,
@@ -539,8 +562,13 @@ fn mark_dead_enemies(
 		(Entity, &Health), 
 		(Changed<Health>, With<Enemy>)
 	>
-) { ... }
-
+) {
+	for (id, health) in &entities {
+		if !health.isCaput() { continue; }
+		commands.entity(id)
+			.insert(Garbage);
+	}
+}
 
 ```
 <!-- element highlight-theme="tokyo-night-dark" data-id="2" -->
@@ -548,7 +576,8 @@ note:
 - Commands aggregates a bunch of common actions
 	- Create new entities
 	- Add/Remove components
-- Tuples are like And
+- Tuples are like And ( Hint of `Bundles` )
+- `Entity` is the id ( Is a copy value, no need for `&` )
 
 --
 
@@ -564,7 +593,7 @@ fn mark_dead_enemies(
 
 ```
 <!-- element highlight-theme="tokyo-night-dark" class="no-highlight" data-id="2" -->
-```rust[|4]
+```rust[|2,5|3|4]
 
 fn clean_up(
 	mut commands: Commands, 
@@ -575,14 +604,24 @@ fn clean_up(
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
 note:
-- Entity doesn't have the &, because its a copy type
+- Systems build on each other, each one is simple and can compound to tackle any problem
+
+--
+
+<!-- slide data-auto-animate data-auto-animate-id="6" -->
+![[toolbox.svg|150]]
+## Parámetros de Sistemas
+
+note:
+- By default  bevy gives this `SistemInput` trait implementers
+- You can create new ones by implementing the trait
 
 --
 
 <!-- slide data-auto-animate data-auto-animate-id="6" -->
 ## Parámetros de Sistemas
 
-```rust[|4|5|4,5|3,6|3-6|7]
+```rust[|2,9|3,6|4|5|4,5|3,6|3-6|7|8]
 
 fn reset_position(
 	mut set: ParamSet<(
@@ -590,6 +629,7 @@ fn reset_position(
 		Query<&mut Position, With<Player>>,
 	)>,
 	config: Res<GameConfig>,
+	trigger: Trigger<PositionAlert>
 ) { ... }
 
 
@@ -597,6 +637,7 @@ fn reset_position(
 <!-- element highlight-theme="tokyo-night-dark" -->
 note:
 - ParamSet is to work around query collisions, just lets access to 1 Query at a time
+- Trigger is for observers
 
 --
 
@@ -635,16 +676,22 @@ fn debug_draw(
 
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
+note:
+- Accessing `World` makes the system _exclusive_
+- _Exclusive_ systems cannot be run in parallel
+- By the way, Bevy tries to run everything in parallel
 
 --
 
 ## La App
-```rust[]
+```rust[|3|4|5|6|7|8]
 
 fn main() {
 	App::new()
+		.add_plugins(...)
 		.add_systems(...)
 		.insert_resource(...)
+		.add_event(...)
 		.run()
 }
 
@@ -663,7 +710,7 @@ note:
 
 <!-- slide data-auto-animate data-auto-animate-id="6" -->
 ## Componentes
-```rust[1-7|2]
+```rust[|2]
 
 #[derive(Bundle)]
 struct PlayerBundle {
@@ -709,17 +756,16 @@ note:
 --
 
 ## Sistemas
-```rust[|2,11|3|4-10|4-8|9|10]
+```rust[|2,11|3|4-8|7|9]
 
 app.add_systems(
     Update,
     (
         system_a,
         system_b,
-        system_c
+        system_c.after(system_b)
     )
     .run_if(common_run_condition)
-    .after(some_system)
 );
 
 
@@ -728,6 +774,7 @@ app.add_systems(
 
 --
 
+## Plugins
 <!-- slide data-auto-animate data-auto-animate-id="7" -->
 ```rust[|2,5|3-4]
 
@@ -739,7 +786,6 @@ fn my_plugin(app: &mut App) {
 
 ```
 <!-- element highlight-theme="tokyo-night-dark" data-id="2"-->
-## Plugins
 
 --
 
@@ -773,7 +819,7 @@ impl Plugin for MyPlugin {
 
 --
 
-## System Composition
+## Composición de Sistemas
 
 ```rust[|2,8|3|4-7|5|6]
 
@@ -790,11 +836,13 @@ app.add_systems(
 <!-- element highlight-theme="tokyo-night-dark" -->
 note:
 - Fallible functions can't be added directly but can be used by piping or mapping
+- Pipe works on Systems
+- Map accepts any function ( info, drop, warn, ... )
 
 --
 
-## In-System parallelization
-```rust[|2,5,10|3|5,9|6,8|7]
+## Paralelización en Sistemas
+```rust[|2,4,10|3|5,9|6,8|7]
 
 fn apply_gravity(
 	mut query: Query<&mut Velocity>
