@@ -558,12 +558,26 @@ note:
 #[derive(Event)]
 struct HitEvent { ... }
 
+
 ```
+<!-- element highlight-theme="tokyo-night-dark" -->
 
 --
 
 ## Observadores
-TODO
+```rust[|2,5,8|3|4|6|7]
+
+fn handle_hit(
+	trigger: Trigger<HitEvent>,
+	player_health: Single<&mut Health, With<Player>>
+) {
+	let mut health = player_health.into_inner();
+	health -= trigger.event().damage;
+}
+
+
+```
+<!-- element highlight-theme="tokyo-night-dark" -->
 
 --
 
@@ -700,7 +714,8 @@ note:
 
 ## La App
 
-```rust[|3|4|5|6|7|8]
+```rust[|3|4|5|6|7|8|9]
+
 fn main() {
 	App::new()
 		.add_plugins(...)
@@ -728,7 +743,8 @@ note:
 
 <!-- slide data-auto-animate data-auto-animate-id="6" -->
 ## Componentes
-```rust[|2]
+
+```rust[]
 
 #[derive(Bundle)]
 struct PlayerBundle {
@@ -860,6 +876,7 @@ note:
 --
 
 ## Paralelización en Sistemas
+
 ```rust[|2,4,10|3|5,9|6,8|7]
 
 fn apply_gravity(
