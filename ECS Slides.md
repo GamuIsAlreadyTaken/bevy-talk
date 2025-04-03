@@ -252,7 +252,7 @@ Algo similar a una base de datos
 
 <!-- slide data-auto-animate data-auto-animate-id="1" -->
 ## Entidades
-### ⭣
+![[down-arrow.svg|100]]
 ## Id
 note:
 - Ids are the index
@@ -267,7 +267,7 @@ note:
 
 <!-- slide data-auto-animate data-auto-animate-id="2" -->
 ## Componentes
-### ⭣
+![[down-arrow.svg|100]]
 ## Columnas
 note:
 - Try to group the minimum needed data
@@ -282,7 +282,7 @@ note:
 
 <!-- slide data-auto-animate data-auto-animate-id="3" -->
 ## Sistemas
-### ⭣
+![[down-arrow.svg|100]]
 ## Funciones*
 note:
 - Only functions that query this db
@@ -402,6 +402,14 @@ note:
 
 --
 
+![[magnifying.svg|100]]
+## Filtros
+note:
+- Until now we have done only `select`s
+- With<>, Without<>
+
+--
+
 <!-- slide data-auto-animate data-auto-animate-id="2" -->
 ![[notebook.svg|100]]
 ## Registro de Sistemas
@@ -411,7 +419,7 @@ note:
 <!-- slide data-auto-animate data-auto-animate-id="2" -->
 ![[notebook.svg|100]]
 ## Registro de Sistemas
-### ⭣
+![[down-arrow.svg|100]]
 ## Organización de Sistemas
 ![[reorder.svg|120]]
 note: 
@@ -464,14 +472,6 @@ note:
 - Observers add a subscriber list to that Resource
 - Notifies subscribers on event trigger
 - Adds to the idea of executing out of schedule
-
---
-
-![[magnifying.svg|100]]
-## Filtros
-note:
-- Until now we have done only `select`s
-- With<>, Without<>
 
 --
 
@@ -549,6 +549,21 @@ note:
 - References to `Query`implement `Iterator`
 - References are just safe pointers
 - Rust has implicit mutability, thus the `mut` in the query
+
+--
+
+## Eventos
+```rust[]
+
+#[derive(Event)]
+struct HitEvent { ... }
+
+```
+
+--
+
+## Observadores
+TODO
 
 --
 
@@ -684,12 +699,15 @@ note:
 --
 
 ## La App
-```rust[|3|4|5|6|7|8]
 
+```rust[|3|4|5|6|7|8]
 fn main() {
 	App::new()
 		.add_plugins(...)
 		.add_systems(...)
+		.add_event<...>()
+		.add_observer(...)
+		.add_plugins(...)
 		.insert_resource(...)
 		.add_event(...)
 		.run()
