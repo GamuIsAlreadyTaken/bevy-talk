@@ -50,32 +50,19 @@ The current bottleneck is not compute but the memory bus, if we make it faster (
 		- [x] Filters
 			- [x] Change/Addition detection
 			- [x] Removal detection
-		- [ ] Local, local storage for Systems
-		- [ ] Commands, group and defer World modifying operations
+		- [x] Local, local storage for Systems
+		- [x] Commands, group and defer World modifying operations
 - ### Abstraction
 	- [x] Plugins, bundles but for logic
-	- [ ] System Piping, composition of multiple functions into one system
-
-# Bundles
-- [x] Components : Bundle
-- [x] Systems : System Set
-- [x] General : Plugin
-- [ ] Queries : Param Set
-
->[!TODO] For each QOL extension give a problem solved by it
-# Integration with [Bevy](https://bevyengine.org/assets)
-- ### Components = Structs
-- ### Systems = Functions
-	- Query Sets, avoid mutability conflicts in queries with common elements
-
-- [ ] Maybe: Use an example of design, not implemented but as a thought
-- [ ] Review everything in [[#Going further for quality of life]] with bevy examples
+	- [x] System Piping, composition of multiple functions into one system
 
 ## Cool sites
 - [Memory layout of c structs](https://padding-split.vercel.app/)
 
 ## To continue down the rabbit hole
+- [Data Oriented Design resources](https://github.com/dbartolini/data-oriented-design)
 - [A simple ECS](https://austinmorlan.com/posts/entity_component_system)
+- [Bevy](https://bevyengine.org)
 - [Things with bevy](https://bevyengine.org/assets)
 - [Unofficial Bevy Cheat Book](https://bevy-cheatbook.github.io/introduction.html)
 
@@ -120,13 +107,16 @@ The current bottleneck is not compute but the memory bus, if we make it faster (
 	- [freezer](https://www.svgrepo.com/svg/232834/coolnes-freezer)
 	- [cutting board](https://www.svgrepo.com/svg/277615/board-wood-board)
 	- [toolbox](https://www.svgrepo.com/svg/398502/toolbox)
+	- [map](https://www.svgrepo.com/svg/362122/map)
+	- [microscope](https://www.svgrepo.com/svg/397504/microscope)
+	- [bus](https://www.svgrepo.com/svg/476839/bus)
 - [ithare.com](http://ithare.com/)
 	- [cost of operations table](http://ithare.com/infographics-operation-costs-in-cpu-clock-cycles/)
 - [swiftunboxed.com](https://swiftunboxed.com)
 	- [padding and alignment](https://swiftunboxed.com/internals/size-stride-alignment/)
 - [bevy](https://bevyengine.org/)
 	- [bevy logo](https://github.com/bevyengine/bevy/blob/main/assets/branding/bevy_logo_dark.svg)
-- [von neuman architecture](https://www.computerscience.gcse.guru/theory/von-neumann-architecture)
+- [von neuman architecture](https://satharus.me/tech/2023/04/05/8bit_computer_part1.html)
 
 
 - [ ] TODO: Removed unused icons

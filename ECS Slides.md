@@ -17,10 +17,12 @@ como ejemplo
 
 ---
 
-# TODO indice
+![[map.svg|250]]
+# ¿Que vamos a ver?
 
 ---
 
+![[microscope.svg|150]]
 # Diseño orientado a datos
 note:
 - Puts emphasis on the data layout rather than logic organization
@@ -28,10 +30,17 @@ note:
 --
 
 <!-- slide data-auto-animate data-auto-animate-id="5" -->
+![[bus.svg|100]]
 ## Arquitectura de 
 ## von Neuman
 
-![[Von-Neumann-Architecture-Diagram.jpg]]
+--
+
+<!-- slide data-auto-animate data-auto-animate-id="5" -->
+## Arquitectura de 
+## von Neuman
+
+![[von_neumann.png|500]]
 note:
 - Bus limits the amount of data that can be moved to the CPU
 - Caches are useful for reducing its effects
@@ -226,7 +235,7 @@ note:
 ---
 
 <!-- slide data-auto-animate data-auto-animate-id="0" -->
-![[idea.svg|100]]
+![[idea.svg|200]]
 # La idea
 note:
 - Deal with lots of data
@@ -238,9 +247,11 @@ note:
 <!-- slide data-auto-animate data-auto-animate-id="0" -->
 ![[idea.svg|100]]
 # La idea 
-Algo similar a una base de datos
+Una base de datos
 
 ![[database.svg|100]]
+note:
+- Relational model
 
 --
 
@@ -501,17 +512,34 @@ En
 
 --
 
-## Componentes
-```rust[|2|]
+## Entidad
+```rust[]
 
-#[derive(Component)]
-struct MyVelocity { x: f32, y: f32 }
+type Entity ≈ u64;
 
 
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
+
 note:
-- Start introducing rust elements
+- [Entity impl](https://docs.rs/bevy_ecs/0.15.3/src/bevy_ecs/entity/mod.rs.html#158)
+
+--
+
+## Componentes
+```rust[]
+
+#[derive(Component)]
+struct Velocity { x: f32, y: f32 }
+
+#[derive(Component)]
+struct Health(u32);
+
+```
+<!-- element highlight-theme="tokyo-night-dark" -->
+note:
+- Structs can be "traditional" or "tuple"
+- [Struct sintax](https://doc.rust-lang.org/reference/items/structs.html?highlight=struct#structs)
 - Derive generates code for us ( anti boilerplate )
 
 --
@@ -519,12 +547,15 @@ note:
 ## Recursos
 ```rust[]
 
-#[derive(Resource)]
+#[derive(Resource, Default)]
 struct GameConfig { ... }
 
 
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
+note:
+- `Default` gives you a default if `...` is all `Default`
+- `...` means whatever
 
 --
 
@@ -532,7 +563,7 @@ struct GameConfig { ... }
 ```rust[|2,4,8|3|5,7|6]
 
 fn gravity(
-	mut velocities: Query<&mut MyVelocity>
+	mut velocities: Query<&mut Velocity>
 ) {
 	for mut velocity in &mut velocities {
 		velocity.y += 9.84;
@@ -543,11 +574,12 @@ fn gravity(
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
 note: 
-- Return void
+- Return `void`
 - Accept a specific set of parameters ( `SistemInput` trait implementers )
 - Parameters of `Query` are mostly reference types
 - References to `Query`implement `Iterator`
 - References are just safe pointers
+- Rust ownership
 - Rust has implicit mutability, thus the `mut` in the query
 
 --
@@ -578,6 +610,11 @@ fn handle_hit(
 
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
+note:
+- `Trigger` is another `SystemInput`
+- Makes this `System` a `Observer`
+- `Observer`s work with `Event`s too
+- `Single` is a `Query` that returns just one element or panics/warns ( can be configured )
 
 --
 
@@ -722,9 +759,7 @@ fn main() {
 		.add_systems(...)
 		.add_event<...>()
 		.add_observer(...)
-		.add_plugins(...)
 		.insert_resource(...)
-		.add_event(...)
 		.run()
 }
 
