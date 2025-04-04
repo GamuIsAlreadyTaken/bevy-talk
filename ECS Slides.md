@@ -554,7 +554,7 @@ struct GameConfig { ... }
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
 note:
-- `Default` gives you a default if `...` is all `Default`
+- `Default` implements for you default if `...` is all `Default`
 - `...` means whatever
 
 --
@@ -930,7 +930,42 @@ fn apply_gravity(
 
 ---
 
-## Ejemplos
-todo select examples to show
-https://bevyengine.org/examples/
+## [Ejemplos](https://bevyengine.org/examples/)
 
+--
+
+![[hatchling.svg|150]]
+
+- [Girar un sprite](https://bevyengine.org/examples/2d-rendering/sprite-flipping/)
+- [Animación simple](https://bevyengine.org/examples/animation/animation-events/)
+- [Plugins](https://bevyengine.org/examples/application/plugin/)
+note:
+- 1 Default de-structure, Setup system, Load images
+- 2 Unit Structs, Default de-structure, Animation Graph, Observers
+- 3 Struct Construction, impl trait, Ownership, Plugins
+
+--
+
+![[chick.svg|200]]
+
+- [Animación de sprites](https://bevyengine.org/examples/2d-rendering/sprite-animation/)
+- [Picking API](https://bevyengine.org/examples/picking/simple-picking/)
+note:
+- 1 Generic Functions, Struct constructors, Generic Systems, Run Conditions
+- 2 Ignored elements "\_param", Closures, UI, Observers, Pointer (modern bevy mouse)
+
+--
+
+![[chicken.svg|250]]
+
+- [Minas!!](https://bevyengine.org/examples/ecs-entity-component-system/observers/)
+- [Espaaaaaaaaacio](https://bevyengine.org/examples/ecs-entity-component-system/iter-combinations/)
+note: 
+- 1 Observers, Spatial Index
+- 2 iter_combinations, Multi body sim
+
+--
+
+<!-- slide bg="[[rest.gif]]" -->
+
+# Fin

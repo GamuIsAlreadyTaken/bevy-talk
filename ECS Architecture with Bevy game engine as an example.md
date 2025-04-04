@@ -110,6 +110,9 @@ The current bottleneck is not compute but the memory bus, if we make it faster (
 	- [map](https://www.svgrepo.com/svg/362122/map)
 	- [microscope](https://www.svgrepo.com/svg/397504/microscope)
 	- [bus](https://www.svgrepo.com/svg/476839/bus)
+	- [chicken](https://www.svgrepo.com/svg/404953/chicken)
+	- [chick](https://www.svgrepo.com/svg/405709/front-facing-baby-chick)
+	- [hatchling](https://www.svgrepo.com/svg/405784/hatching-chick)
 - [ithare.com](http://ithare.com/)
 	- [cost of operations table](http://ithare.com/infographics-operation-costs-in-cpu-clock-cycles/)
 - [swiftunboxed.com](https://swiftunboxed.com)
@@ -117,6 +120,7 @@ The current bottleneck is not compute but the memory bus, if we make it faster (
 - [bevy](https://bevyengine.org/)
 	- [bevy logo](https://github.com/bevyengine/bevy/blob/main/assets/branding/bevy_logo_dark.svg)
 - [von neuman architecture](https://satharus.me/tech/2023/04/05/8bit_computer_part1.html)
+- [End](https://www.reddit.com/r/gaming/comments/jx4adf/have_a_rest/)
 
 
 - [ ] TODO: Removed unused icons
