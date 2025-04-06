@@ -65,18 +65,17 @@ The current bottleneck is not compute but the memory bus, if we make it faster (
 - [Bevy](https://bevyengine.org)
 - [Things with bevy](https://bevyengine.org/assets)
 - [Unofficial Bevy Cheat Book](https://bevy-cheatbook.github.io/introduction.html)
+- Bevy Boids [Implementation blog](https://blog.roblesch.page/blog/2024/04/29/bevy-boids.html)
 
 
 # Bibliography
 ## Data
 - Data oriented design effectiveness: [Google TCP patch](https://www.phoronix.com/news/Linux-6.8-Networking)
-- Bevy Boids [Implementation blog](https://blog.roblesch.page/blog/2024/04/29/bevy-boids.html)
 ## Media
 - [highlight.js](https://highlightjs.org/)(edited)
 - [svgrepo.com](https://www.svgrepo.com)
 	- [database](https://www.svgrepo.com/svg/286565/database)
 	- [idea](https://www.svgrepo.com/svg/474868/idea)
-	- [tools](https://www.svgrepo.com/svg/293655/tools-repair)
 	- [rocket](https://www.svgrepo.com/svg/395638/rocket)
 	- [mailbox](https://www.svgrepo.com/svg/298755/postbox-mailbox)
 	- [landline](https://www.svgrepo.com/svg/196801/phone-receiver-telephone)
@@ -85,13 +84,9 @@ The current bottleneck is not compute but the memory bus, if we make it faster (
 	- [trashcan](https://www.svgrepo.com/svg/236584/remove-rubbish)
 	- [bullseye](https://www.svgrepo.com/svg/404901/bullseye)
 	- [flag](https://www.svgrepo.com/svg/285137/flag-peace)
-	- [handcuffs](https://www.svgrepo.com/svg/229601/handcuffs-jail)
-	- [lock](https://www.svgrepo.com/svg/362118/lock-open)
 	- [hourglass](https://www.svgrepo.com/svg/396667/hourglass-not-done)
-	- [ruler](https://www.svgrepo.com/svg/178375/ruler-construction)
 	- [crown](https://www.svgrepo.com/svg/262832/crown)
 	- [bag](https://www.svgrepo.com/svg/397521/money-bag)(edited)
-	- [funnel](https://www.svgrepo.com/svg/232159/funnel)
 	- [register](https://www.svgrepo.com/svg/301025/notebook-bookmark)
 	- [organize](https://www.svgrepo.com/svg/524134/reorder)(edited)
 	- [don't point](https://www.svgrepo.com/svg/73595/pointer)
@@ -121,6 +116,3 @@ The current bottleneck is not compute but the memory bus, if we make it faster (
 	- [bevy logo](https://github.com/bevyengine/bevy/blob/main/assets/branding/bevy_logo_dark.svg)
 - [von neuman architecture](https://satharus.me/tech/2023/04/05/8bit_computer_part1.html)
 - [End](https://www.reddit.com/r/gaming/comments/jx4adf/have_a_rest/)
-
-
-- [ ] TODO: Removed unused icons
