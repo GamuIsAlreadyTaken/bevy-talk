@@ -965,8 +965,6 @@ note:
 - 1 Observers, Spatial Index
 - 2 iter_combinations, Multi body sim
 
---
+---
 
 <!-- slide bg="[[rest.gif]]" -->
-
-# Fin
