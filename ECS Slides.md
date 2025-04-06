@@ -535,6 +535,7 @@ struct Velocity { x: f32, y: f32 }
 #[derive(Component)]
 struct Health(u32);
 
+
 ```
 <!-- element highlight-theme="tokyo-night-dark" -->
 note:

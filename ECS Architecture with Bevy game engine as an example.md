@@ -2,8 +2,8 @@
 1. [-] [[#ECS basics|Vanilla ECS architecture]]
 2. [-] Simple pseudo code example
 3. [-] [[#Going further for quality of life|ECS extensions for QOL]]
-4. [ ] [[#Integration with [Bevy](https //bevyengine.org/assets)|Integration with Bevy]]
-5. [ ] Example of Bevy app
+4. [x] [[#Integration with [Bevy](https //bevyengine.org/assets)|Integration with Bevy]]
+5. [x] Example of Bevy app
 
 # Target problem to solve
 The current bottleneck is not compute but the memory bus, if we make it faster (using it to the fullest) we will have faster times
